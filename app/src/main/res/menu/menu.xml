@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_Fire"
+        android:icon="@drawable/ic_smoke_sensor"
+        android:title="Fire Info"/>
+    <item android:id="@+id/menu_Rain"
+        android:icon="@drawable/ic_sensor"
+        android:title="Rain Info"/>
+
+<!--    <item android:id="@+id/menu_Ldr"-->
+<!--        android:icon="@drawable/ic_sensor"-->
+<!--        android:title="LDR"/>-->
+
+    <item android:id="@+id/menu_Ultra"
+        android:icon="@drawable/ic_ultrasonic_sensor"
+        android:title="Ultrasonic Info"/>
+
+    <item android:id="@+id/menu_show_all_data"
+        android:icon="@drawable/ic_show"
+        android:title="History"/>
+
+    <item android:id="@+id/menu_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Logout"/>
+
+</menu>

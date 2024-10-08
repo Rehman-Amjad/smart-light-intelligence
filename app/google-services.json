@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "470635582069",
+    "firebase_url": "https://smart-street-light-f3afa-default-rtdb.firebaseio.com",
+    "project_id": "smart-street-light-f3afa",
+    "storage_bucket": "smart-street-light-f3afa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470635582069:android:3c0cb08c3857c3d4869e3c",
+        "android_client_info": {
+          "package_name": "com.example.smartinteligentproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470635582069-286p3b82n9ue4tc2838r7bb57h78tmli.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartinteligentproject",
+            "certificate_hash": "3ccc6c93c369273b490a758f99c780cf6c1dd541"
+          }
+        },
+        {
+          "client_id": "470635582069-3732f3gd2e3pii8o043v5aboo0bas71q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_c4BSFhv25pmZowrCBKi4TBqk80LKZ14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470635582069-3732f3gd2e3pii8o043v5aboo0bas71q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
