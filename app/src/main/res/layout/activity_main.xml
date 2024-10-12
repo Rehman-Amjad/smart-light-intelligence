@@ -27,6 +27,7 @@
         android:padding="5dp"
         android:layout_margin="20dp"
         android:textColor="#FFFFFF"
+        android:textAlignment="center"
         android:fontFamily="sans-serif-black"
         android:textSize="26sp"
         />

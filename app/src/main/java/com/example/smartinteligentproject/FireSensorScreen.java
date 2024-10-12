@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -84,22 +85,22 @@ public class FireSensorScreen extends AppCompatActivity {
 
 
         myRef.addChildEventListener(new ChildEventListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                fireValue=snapshot.child("T2FireSensor").getValue(String.class);
-                fire2Value=snapshot.child("T1FireSensor").getValue(String.class);
+                fireValue=snapshot.child("T1FireSensor").getValue(String.class);
+                fire2Value=snapshot.child("T2FireSensor").getValue(String.class);
                 img=snapshot.child("img").getValue(String.class);
+
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                byte[] imageBytes = baos.toByteArray();
+                imageBytes = Base64.decode(img, Base64.DEFAULT);
+                Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+                img_fire.setImageBitmap(decodedImage);
 
 
                 if (fireValue.equals("1"))
                 {
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    byte[] imageBytes = baos.toByteArray();
-                    imageBytes = Base64.decode(img, Base64.DEFAULT);
-                    Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-                    img_fire.setImageBitmap(decodedImage);
-
-                    tv_fire.setText("Fire ALert");
                     tower1Fire_gif.setVisibility(View.VISIBLE);
 
                     Glide.with(FireSensorScreen.this)
@@ -111,20 +112,11 @@ public class FireSensorScreen extends AppCompatActivity {
                 }
                 else
                 {
-                    tv_fire.setText("Everything is Ok");
-                    img_fire.setImageResource(R.drawable.okimage);
                     tower1Fire_gif.setVisibility(View.GONE);
                 }
 
                 if (fire2Value.equals("1"))
                 {
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    byte[] imageBytes = baos.toByteArray();
-                    imageBytes = Base64.decode(img, Base64.DEFAULT);
-                    Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-                    img_fire.setImageBitmap(decodedImage);
-
-                    tv_fire.setText("Fire ALert");
                     tower2Fire_gif.setVisibility(View.VISIBLE);
                     Glide.with(FireSensorScreen.this)
                             .load(R.drawable.flame)
@@ -134,16 +126,20 @@ public class FireSensorScreen extends AppCompatActivity {
                 }
                 else
                 {
-                    tv_fire.setText("Everything is Ok");
-                    img_fire.setImageResource(R.drawable.okimage);
                     tower2Fire_gif.setVisibility(View.GONE);
+                }
+                if(fireValue.equals("1") || fire2Value.equals("1")){
+                    tv_fire.setText("Fire Alert");
+                }else{
+                    tv_fire.setText("Everything is Ok");
                 }
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                fireValue=snapshot.child("T2FireSensor").getValue(String.class);
-                fire2Value=snapshot.child("T1FireSensor").getValue(String.class);
+                fireValue=snapshot.child("T1FireSensor").getValue(String.class);
+                fire2Value=snapshot.child("T2FireSensor").getValue(String.class);
+
 
 
                 if (fireValue.equals("1"))
@@ -166,8 +162,6 @@ public class FireSensorScreen extends AppCompatActivity {
                 }
                 else
                 {
-                    tv_fire.setText("Everything is Ok");
-                    img_fire.setImageResource(R.drawable.okimage);
                     tower1Fire_gif.setVisibility(View.GONE);
                 }
 
@@ -189,9 +183,13 @@ public class FireSensorScreen extends AppCompatActivity {
                 }
                 else
                 {
-                    tv_fire.setText("Everything is Ok");
-                    img_fire.setImageResource(R.drawable.okimage);
                     tower2Fire_gif.setVisibility(View.GONE);
+                }
+
+                if(fireValue.equals("1") || fire2Value.equals("1")){
+                    tv_fire.setText("Fire Alert");
+                }else{
+                    tv_fire.setText("Everything is Ok");
                 }
             }
 

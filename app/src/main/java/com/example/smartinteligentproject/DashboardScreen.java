@@ -77,11 +77,11 @@ public class DashboardScreen extends AppCompatActivity {
                         drayerLayout.closeDrawer(GravityCompat.START);
                         break;
 
-//                    case R.id.menu_Ldr:
-//                        Intent LDRIntent=new Intent(DashboardScreen.this,LDRScreen.class);
-//                        startActivity(LDRIntent);
-//                        drayerLayout.closeDrawer(GravityCompat.START);
-//                        break;
+                    case R.id.menu_Ldr:
+                        Intent LDRIntent=new Intent(DashboardScreen.this,LDRScreen.class);
+                        startActivity(LDRIntent);
+                        drayerLayout.closeDrawer(GravityCompat.START);
+                        break;
 
                     case R.id.menu_show_all_data:
                         Intent showIntent=new Intent(DashboardScreen.this,FireShowData.class);

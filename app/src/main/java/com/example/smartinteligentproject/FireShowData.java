@@ -95,8 +95,6 @@ public class FireShowData extends AppCompatActivity {
         myRef.addChildEventListener(MyChildEventListener);
 
 
-
-
         btnDeleteAll.setOnClickListener(v -> {
             deleteAllHistoryData();
         });

@@ -8,9 +8,9 @@
         android:icon="@drawable/ic_sensor"
         android:title="Rain Info"/>
 
-<!--    <item android:id="@+id/menu_Ldr"-->
-<!--        android:icon="@drawable/ic_sensor"-->
-<!--        android:title="LDR"/>-->
+    <item android:id="@+id/menu_Ldr"
+        android:icon="@drawable/ic_sensor"
+        android:title="LDR"/>
 
     <item android:id="@+id/menu_Ultra"
         android:icon="@drawable/ic_ultrasonic_sensor"

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -78,9 +79,10 @@ public class LDRScreen extends AppCompatActivity {
 
 
         myRef.addChildEventListener(new ChildEventListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                fireValue=snapshot.child("LDR").getValue(String.class);
+                fireValue=snapshot.child("LDRSensor").getValue(String.class);
                 img=snapshot.child("img").getValue(String.class);
 
 
@@ -106,19 +108,25 @@ public class LDRScreen extends AppCompatActivity {
                 }
                 else
                 {
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    byte[] imageBytes = baos.toByteArray();
+                    imageBytes = Base64.decode(img, Base64.DEFAULT);
+                    Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+                    img_fire.setImageBitmap(decodedImage);
+
                     tv_fire.setText("Good Morning");
                     gif.setVisibility(View.VISIBLE);
                     gif.setImageResource(R.drawable.day);
                 }
             }
 
+            @SuppressLint("SetTextI18n")
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                fireValue=snapshot.child("LDR").getValue(String.class);
+                fireValue=snapshot.child("LDRSensor").getValue(String.class);
 
 
-
-
+                assert fireValue != null;
                 if (fireValue.equals("1"))
                 {
 
@@ -138,6 +146,12 @@ public class LDRScreen extends AppCompatActivity {
                 }
                 else
                 {
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    byte[] imageBytes = baos.toByteArray();
+                    imageBytes = Base64.decode(img, Base64.DEFAULT);
+                    Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+                    img_fire.setImageBitmap(decodedImage);
+
                     tv_fire.setText("Good Morning");
                     gif.setVisibility(View.VISIBLE);
                     gif.setImageResource(R.drawable.day);
