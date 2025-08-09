@@ -16,6 +16,10 @@
         android:icon="@drawable/ic_ultrasonic_sensor"
         android:title="Ultrasonic Info"/>
 
+    <item android:id="@+id/menu_dash"
+        android:icon="@drawable/ic_ultrasonic_sensor"
+        android:title="Sign Board"/>
+
     <item android:id="@+id/menu_show_all_data"
         android:icon="@drawable/ic_show"
         android:title="History"/>

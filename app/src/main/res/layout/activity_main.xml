@@ -22,7 +22,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="IoT Enabled Smart Lighting System for Smart Road"
+        android:text="IOT-Smart Intelligent Road Lighting System (SIRLS)"
         android:layout_marginTop="20dp"
         android:padding="5dp"
         android:layout_margin="20dp"

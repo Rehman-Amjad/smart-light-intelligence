@@ -8,28 +8,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartInteligentProject">
-        <activity android:name=".LDRScreen">
-
-        </activity>
-        <activity android:name=".UltraSensorScreen"
-            android:exported="false"/>
-        <activity android:name=".RainSensorScreen"
-            android:exported="false"/>
-        <activity android:name=".Model.LoginScreen"
-            android:exported="false"/>
-        <activity android:name=".FireSensorScreen"
-            android:exported="false"/>
-        <activity android:name=".FireShowData"
-            android:exported="false"/>
-        <activity android:name=".DashboardScreen"
+        <activity
+            android:name=".SignBoardActivity"
+            android:exported="false" />
+        <activity android:name=".LDRScreen"></activity>
+        <activity
+            android:name=".UltraSensorScreen"
+            android:exported="false" />
+        <activity
+            android:name=".RainSensorScreen"
+            android:exported="false" />
+        <activity
+            android:name=".Model.LoginScreen"
+            android:exported="false" />
+        <activity
+            android:name=".FireSensorScreen"
+            android:exported="false" />
+        <activity
+            android:name=".FireShowData"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardScreen"
             android:exported="false">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
