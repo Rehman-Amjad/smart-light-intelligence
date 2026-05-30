@@ -46,69 +46,32 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder>{
         User user=mDatalist.get(position);
 
 
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        byte[] imageBytes = baos.toByteArray();
-        imageBytes = Base64.decode(user.getImg(), Base64.DEFAULT);
-        Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-
-        holder.imageView.setImageBitmap(decodedImage);
-
-
-        holder.tvId.setText("ID: "+user.getId());
-        if (user.getT2FireSensor().equals("1"))
-        {
-            holder.tvFire_Sensor.setText("Fire Sensor: Fire Alert");
-        }
-        else
-        {
-            holder.tvFire_Sensor.setText("Fire Sensor: No Fire");
-        }
-
-        if (user.getT1FireSensor().equals("1"))
-        {
-            holder.tvFire_Sensor2.setText("Fire Sensor: Fire Alert");
-        }
-        else
-        {
-            holder.tvFire_Sensor2.setText("Fire Sensor: No Fire");
+        String imgStr = user.getImg();
+        if (imgStr != null && !imgStr.isEmpty()) {
+            byte[] imageBytes = Base64.decode(imgStr, Base64.DEFAULT);
+            Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+            holder.imageView.setImageBitmap(decodedImage);
+        } else {
+            holder.imageView.setImageDrawable(null);
         }
 
 
-        if (user.getT1UltrasonicSensor().equals("1"))
-        {
-            holder.tv_LDR.setText("Light On");
-        }
-        else
-        {
-            holder.tv_LDR.setText("Light Off");
-        }
+        holder.tvId.setText("ID: " + user.getId());
 
-        if (user.getT1UltrasonicSensor().equals("1"))
-        {
-            holder.tv_LDR.setText("Light On");
-        }
-        else
-        {
-            holder.tv_LDR.setText("Light Off");
-        }
+        holder.tvFire_Sensor.setText("1".equals(user.getT2FireSensor())
+                ? "Fire Sensor: Fire Alert" : "Fire Sensor: No Fire");
 
+        holder.tvFire_Sensor2.setText("1".equals(user.getT1FireSensor())
+                ? "Fire Sensor: Fire Alert" : "Fire Sensor: No Fire");
 
-        if (user.getT2UltrasonicSensor().equals("1"))
-        {
-            holder.tv_LDR2.setText("Light On");
-        }
-        else
-        {
-            holder.tv_LDR2.setText("Light Off");
-        }
-        if (user.getRain().equals("1"))
-        {
-            holder.tvsrain_Sensor.setText("Rain Sensor: Its Raining");
-        }
-        else
-        {
-            holder.tvsrain_Sensor.setText("Rain Sensor: Its not Raining");
-        }
+        holder.tv_LDR.setText("1".equals(user.getT1UltrasonicSensor())
+                ? "Light On" : "Light Off");
+
+        holder.tv_LDR2.setText("1".equals(user.getT2UltrasonicSensor())
+                ? "Light On" : "Light Off");
+
+        holder.tvsrain_Sensor.setText("1".equals(user.getRain())
+                ? "Rain Sensor: Its Raining" : "Rain Sensor: Its not Raining");
 
 
 

@@ -1,6 +1,10 @@
 package com.example.smartinteligentproject.Model;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,8 +25,17 @@ public class LoginScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        EdgeToEdge.enable(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
+
+        int basePad = (int) (20 * getResources().getDisplayMetrics().density);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.root), (v, insets) -> {
+            Insets bars = insets.getInsets(
+                    WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout());
+            v.setPadding(bars.left + basePad, bars.top + basePad, bars.right + basePad, bars.bottom + basePad);
+            return WindowInsetsCompat.CONSUMED;
+        });
 
         btnLogin=findViewById(R.id.btnLogin);
         etUserName=findViewById(R.id.etUserName);
